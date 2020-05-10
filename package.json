@@ -1,0 +1,36 @@
+{
+  "name": "horoscope_parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "parse-horoscope": "dist/bin/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.6",
+    "async": "^3.2.0",
+    "axios": "^0.19.2",
+    "babel-eslint": "^10.1.0",
+    "cheerio": "^1.0.0-rc.3",
+    "commander": "^5.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-jest": "^23.9.0",
+    "jest": "^26.0.1",
+    "lodash": "^4.17.15"
+  }
+}
