@@ -35,7 +35,6 @@ const saveToFiles = (coll, zod, dir, gen) => {
 
 const render = async (coll, outDir) => {
   const zod = coll.map((z) => z.name);
-  console.log(zod);
   zod.map((z) => {
     return gender.map((g) => saveToFiles(coll, z, outDir, g));
   });
