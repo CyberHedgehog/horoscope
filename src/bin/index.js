@@ -10,11 +10,11 @@ program
   .option('-o, --output', 'output directory')
   .parse(process.argv);
 
-  const { args } = program;
-  const [outPath] = program.output ? args : ['./'];
+const { args } = program;
+const [outPath] = program.output ? args : ['./'];
 
-  load(outPath)
-    .then((coll) => {
-      render(coll, outPath);
-    })
-    .catch((err) => console.log('error'));
+load(outPath)
+  .then((coll) => {
+    render(coll, outPath);
+  })
+  .catch((err) => console.log('error'));
