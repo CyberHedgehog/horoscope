@@ -12,14 +12,20 @@ block main
         a(class="nav-item nav-link" id="nav-female-tab" data-toggle="tab" href="#female" role="tab" aria-controls="female" aria-selected="false") Женщина
     div(class="tab-content" id="nav-tabContent")
       div(class="tab-pane fade show active" id="common" role="tabpanel" aria-labelledby="nav-common-tab")
+        h1= `Гороскоп ${name} на ${date}`
         each h in horoscopes
           h3= h.type
           p= h.common
+        p= tags.commonTags
       div(class="tab-pane fade" id="male" role="tabpanel" aria-labelledby="nav-male-tab")
+        h1= `Мужской гороскоп ${name} на ${date}`
         each h in horoscopes
           h3= h.type
           p= h.male
+        p= tags.maleTags
       div(class="tab-pane fade" id="female" role="tabpanel" aria-labelledby="nav-female-tab")
+        h1= `Женский гороскоп ${name} на ${date}`
         each h in horoscopes
           h3= h.type
           p= h.female
+        p= tags.femaleTags

@@ -9,9 +9,6 @@ import session from 'koa-generic-session';
 import flash from 'koa-better-flash';
 import methodOverride from 'koa-methodoverride';
 import Pug from 'koa-pug';
-// import koaWebpack from 'koa-webpack';
-// import webpackConfig from './webpack.config';
-// import log from './lib/logger';
 import addRoutes from './routes';
 
 require('dotenv').config();
