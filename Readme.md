@@ -3,7 +3,7 @@
 `git clone`  
 `make install`  
 `make publish`  
-`sudo npm link`  
+`make start`  
 
 ## Hot to use
-`parse-horoscope -o <dir>`
+`localhost:3000`

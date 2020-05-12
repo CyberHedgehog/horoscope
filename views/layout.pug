@@ -1,0 +1,18 @@
+doctype html
+html
+  block head
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    block title
+    script(src='/assets/main.js')
+  body
+    header
+      nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+        a.navbar-brand(href="/") ZuDiac
+        div(class="collapse navbar-collapse" id="navbarSupportedContent")
+          ul(class="navbar-nav mr-auto")
+            li(class="nav-item dropdown")
+            a(class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Знаки
+            div(class="dropdown-menu" aria-labelledby="navbarDropdown")
+              each key in keys
+                a(class="dropdown-item" href= `/${key}`)= names[key]
+    block main

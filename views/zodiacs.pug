@@ -1,0 +1,25 @@
+extends /layout.pug
+
+block main
+  .container
+    header
+      .mt-3.mb-3
+        h1= name
+    nav
+      div(class="nav nav-tabs" id="nav-tab" role="tablist")
+        a(class="nav-item nav-link active" id="nav-common-tab" data-toggle="tab" href="#common" role="tab" aria-controls="common" aria-selected="true") Общий
+        a(class="nav-item nav-link" id="nav-male-tab" data-toggle="tab" href="#male" role="tab" aria-controls="male" aria-selected="false") Мужчина
+        a(class="nav-item nav-link" id="nav-female-tab" data-toggle="tab" href="#female" role="tab" aria-controls="female" aria-selected="false") Женщина
+    div(class="tab-content" id="nav-tabContent")
+      div(class="tab-pane fade show active" id="common" role="tabpanel" aria-labelledby="nav-common-tab")
+        each h in horoscopes
+          h3= h.type
+          p= h.common
+      div(class="tab-pane fade" id="male" role="tabpanel" aria-labelledby="nav-male-tab")
+        each h in horoscopes
+          h3= h.type
+          p= h.male
+      div(class="tab-pane fade" id="female" role="tabpanel" aria-labelledby="nav-female-tab")
+        each h in horoscopes
+          h3= h.type
+          p= h.female

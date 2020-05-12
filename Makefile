@@ -2,10 +2,13 @@ install:
 	npm install
 
 start:
-	npx babel-node src/bin/index.js
+	npx gulp run
 
-publish:
-	npm publish --dry-run
+debug:
+	DEBUG=app npx gulp run
+
+build:
+	npm run build
 
 lint:
 	npx eslint .
