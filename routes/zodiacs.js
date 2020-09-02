@@ -37,6 +37,7 @@ export default (router) => {
     // console.log(path.join(__dirname, '..', '.gitignore'));
     // ctx.response.body = fs.createReadStream(path.join(__dirname, '..', 'public', `${zodiac}.xml`));
     // ctx.set('Content-disposition', `attachment; filename=${zodiac}.xml`);
+    ctx.type = 'text/xml';
     ctx.response.body = xmlString;
   });
 };
