@@ -4,7 +4,7 @@ block main
   .container
     header
       .mt-3.mb-3
-        h1= name
+        h1= name.a
     nav
       div(class="nav nav-tabs" id="nav-tab" role="tablist")
         a(class="nav-item nav-link active" id="nav-common-tab" data-toggle="tab" href="#common" role="tab" aria-controls="common" aria-selected="true") Общий
@@ -13,19 +13,19 @@ block main
         a(href=`/${zodiac}/xml` class="nav-item nav-link") Get XML
     div(class="tab-content" id="nav-tabContent")
       div(class="tab-pane fade show active" id="common" role="tabpanel" aria-labelledby="nav-common-tab")
-        h1= `Гороскоп ${name} на ${date}`
+        h1= `Гороскоп ${name.b.toLowerCase()} на ${date}`
         each h in horoscopes
           h3= h.type
-          p= h.common
+          p= h.text
         p= tags.commonTags
       div(class="tab-pane fade" id="male" role="tabpanel" aria-labelledby="nav-male-tab")
-        h1= `Мужской гороскоп ${name} на ${date}`
+        h1= `Мужской гороскоп ${name.b.toLowerCase()} на ${date}`
         each h in horoscopes
           h3= h.type
           p= h.male
         p= tags.maleTags
       div(class="tab-pane fade" id="female" role="tabpanel" aria-labelledby="nav-female-tab")
-        h1= `Женский гороскоп ${name} на ${date}`
+        h1= `Женский гороскоп ${name.b.toLowerCase()} на ${date}`
         each h in horoscopes
           h3= h.type
           p= h.female

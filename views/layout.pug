@@ -14,5 +14,5 @@ html
             a(class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Знаки
             div(class="dropdown-menu" aria-labelledby="navbarDropdown")
               each key in keys
-                a(class="dropdown-item" href= `/${key}`)= names[key]
+                a(class="dropdown-item" href= `/${key}`)= names[key].a
     block main

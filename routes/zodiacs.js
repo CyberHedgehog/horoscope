@@ -22,7 +22,7 @@ export default (router) => {
       await ctx.render('root', { keys, names });
       return;
     }
-    const tags = getTags(name);
+    const tags = getTags(name.a);
     const date = getDateString();
     const horoscopes = await loader(zodiac);
     ctx.session[zodiac] = horoscopes;
@@ -33,9 +33,10 @@ export default (router) => {
     const { zodiac } = ctx.params;
     const data = await loader(zodiac);
     const xmlString = makeXml(zodiac, data);
-    await saveToFile(`${zodiac}.xml`, xmlString);
-    console.log(path.join(__dirname, '..', '.gitignore'));
-    ctx.response.body = fs.createReadStream(path.join(__dirname, '..', 'public', `${zodiac}.xml`));
-    ctx.set('Content-disposition', `attachment; filename=${zodiac}.xml`);
+    // await saveToFile(`${zodiac}.xml`, xmlString);
+    // console.log(path.join(__dirname, '..', '.gitignore'));
+    // ctx.response.body = fs.createReadStream(path.join(__dirname, '..', 'public', `${zodiac}.xml`));
+    // ctx.set('Content-disposition', `attachment; filename=${zodiac}.xml`);
+    ctx.response.body = xmlString;
   });
 };
