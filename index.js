@@ -25,9 +25,6 @@ export default () => {
     return null;
   }));
   app.use(flash());
-  // if (process.env.NODE_ENV !== 'test' && process.env.NODE_ENV !== 'production') {
-  //   koaWebpack({ config: webpackConfig }).then((m) => app.use(m));
-  // }
 
   app.use(serve(path.join(__dirname, 'public')));
 

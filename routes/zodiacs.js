@@ -1,17 +1,11 @@
+/* eslint-disable max-len */
 import _ from 'lodash';
-import fs from 'fs';
-import path from 'path';
 import loader from '../lib/zodiac-loader';
 import getTags from '../lib/getTags';
 import getDateString from '../lib/getDateString';
 import makeXml from '../lib/makeXML';
 // import convertName from '../lib/zodiacNames';
 import { names, convertName } from '../lib/zodiacNames';
-
-const saveToFile = (fileName, data) => {
-  const filePath = path.join('./public', fileName);
-  return fs.promises.writeFile(filePath, data);
-};
 
 export default (router) => {
   router.get('zodiac', '/:zodiac', async (ctx) => {

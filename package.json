@@ -66,7 +66,6 @@
     "qs": "^6.9.4",
     "rollbar": "^2.14.4",
     "sass-loader": "^8.0.2",
-    "storage.io": "^1.2.0",
     "style-loader": "^1.0.1",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
