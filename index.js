@@ -25,7 +25,6 @@ export default () => {
     return null;
   }));
   app.use(flash());
-
   app.use(serve(path.join(__dirname, 'public')));
 
   app.use(koaLogger());
