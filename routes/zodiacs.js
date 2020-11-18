@@ -1,10 +1,8 @@
-/* eslint-disable max-len */
 import _ from 'lodash';
 import loader from '../lib/zodiac-loader';
 import getTags from '../lib/getTags';
 import getDateString from '../lib/getDateString';
 import makeXml from '../lib/makeXML';
-// import convertName from '../lib/zodiacNames';
 import { names, convertName } from '../lib/zodiacNames';
 
 export default (router) => {
@@ -20,17 +18,12 @@ export default (router) => {
     const date = getDateString();
     const horoscopes = await loader(zodiac);
     ctx.session[zodiac] = horoscopes;
-    // eslint-disable-next-line object-curly-newline
     await ctx.render('zodiacs', { name, horoscopes, keys, names, tags, date, zodiac });
   });
   router.get('xml', '/:zodiac/xml', async (ctx) => {
     const { zodiac } = ctx.params;
     const data = await loader(zodiac);
     const xmlString = makeXml(zodiac, data);
-    // await saveToFile(`${zodiac}.xml`, xmlString);
-    // console.log(path.join(__dirname, '..', '.gitignore'));
-    // ctx.response.body = fs.createReadStream(path.join(__dirname, '..', 'public', `${zodiac}.xml`));
-    // ctx.set('Content-disposition', `attachment; filename=${zodiac}.xml`);
     ctx.type = 'text/xml';
     ctx.response.body = xmlString;
   });
