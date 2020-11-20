@@ -9,6 +9,7 @@ import session from 'koa-generic-session';
 import flash from 'koa-better-flash';
 import methodOverride from 'koa-methodoverride';
 import Pug from 'koa-pug';
+import mongo from 'koa-mongo';
 import addRoutes from './routes';
 
 require('dotenv').config();
@@ -18,6 +19,11 @@ export default () => {
   app.keys = [process.env.APPKEY];
   app.use(session(app));
   app.use(bodyParser());
+  app.use(mongo({
+    uri: process.env.DBURL,
+    max: 100,
+    min: 1,
+  }));
   app.use(methodOverride((req) => {
     if (req.body && typeof req.body === 'object' && '_method' in req.body) {
       return req.body._method; // eslint-disable-line
@@ -50,6 +56,7 @@ export default () => {
       next();
     } catch (err) {
       // rollbar.error(err, ctx.request);
+      ctx.log(err);
     }
   });
 

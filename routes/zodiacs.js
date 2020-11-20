@@ -18,7 +18,15 @@ export default (router) => {
     const date = getDateString();
     const horoscopes = await loader(zodiac);
     ctx.session[zodiac] = horoscopes;
-    await ctx.render('zodiacs', { name, horoscopes, keys, names, tags, date, zodiac });
+    await ctx.render('zodiacs', {
+      name,
+      horoscopes,
+      keys,
+      names,
+      tags,
+      date,
+      zodiac,
+    });
   });
   router.get('xml', '/:zodiac/xml', async (ctx) => {
     const { zodiac } = ctx.params;
