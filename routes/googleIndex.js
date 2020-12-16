@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import gUpdate from '../lib/updateGoogle';
+import update from '../lib/updateGoogle';
 import makeUrls from '../lib/makeUrlsToUpdate';
 
 export default (router) => {
@@ -7,12 +7,16 @@ export default (router) => {
     const urls = makeUrls();
     const coll = await ctx.db.collection('serviceUsers');
     const users = await coll.find().toArray();
-    const chunkSize = Math.ceil(urls.length / users.length);
-    const chuncked = _.chunk(urls, chunkSize);
-    // chuncked.forEach((e) => console.log(e.length));
-    const promises = _.flatten(chuncked.forEach((elem, index) => gUpdate(users[index], elem)));
-    // const result = await Promise.all(promises);
-    console.log(promises);
-    ctx.response.body = 'lol';
+    users.map((u) => u.requests = 0);
+    let time = 0;
+    for (let link of urls) {
+      const availableUsers = _.filter(users, (u) => u.requests < 190);
+      console.log(availableUsers);
+      const user = _.sample(availableUsers);
+      setTimeout(() => update(user, link).then((res) => console.log(res.status)).catch((e) => console.log(e.message)), time);
+      time += 300;
+      user.requests += 1;
+    };
+    ctx.response.body = 'Index';
   });
 };
