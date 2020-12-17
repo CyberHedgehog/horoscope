@@ -11,12 +11,11 @@ export default (router) => {
     let time = 0;
     for (let link of urls) {
       const availableUsers = _.filter(users, (u) => u.requests < 190);
-      console.log(availableUsers);
       const user = _.sample(availableUsers);
       setTimeout(() => update(user, link).then((res) => console.log(res.status)).catch((e) => console.log(e.message)), time);
-      time += 300;
+      time += 200;
       user.requests += 1;
     };
-    ctx.response.body = 'Index';
+    ctx.response.body = 'started index';
   });
 };
