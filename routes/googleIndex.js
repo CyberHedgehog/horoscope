@@ -16,6 +16,6 @@ export default (router) => {
       time += 200;
       user.requests += 1;
     };
-    ctx.response.body = 'started index';
+    ctx.response.body = urls;
   });
 };
