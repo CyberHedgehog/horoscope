@@ -4,7 +4,9 @@ import makeUrls from '../lib/makeUrlsToUpdate';
 
 export default (router) => {
   router.get('gindex', '/google/index', async (ctx) => {
-    const urls = makeUrls();
+    const domains = await ctx.db.collection('domains');
+    const domain = await domains.findOne({ status: 'active' });
+    const urls = makeUrls(domain.name);
     const coll = await ctx.db.collection('serviceUsers');
     const logs = await ctx.db.collection('logs');
     const users = await coll.find().toArray();
