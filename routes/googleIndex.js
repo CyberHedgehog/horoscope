@@ -7,6 +7,7 @@ export default (router) => {
     const domains = await ctx.db.collection('domains');
     const domain = await domains.findOne({ status: 'active' });
     const urls = makeUrls(domain.name);
+    console.log(urls.length);
     const coll = await ctx.db.collection('serviceUsers');
     const logs = await ctx.db.collection('logs');
     const users = await coll.find().toArray();
