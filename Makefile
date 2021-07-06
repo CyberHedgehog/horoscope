@@ -2,16 +2,22 @@ install:
 	npm install
 
 start:
-	npx gulp run
+	npm run start
+
+start prod:
+	npm run start:prod
+
+start dev:
+	npm run start:dev
 
 debug:
-	DEBUG=app npx gulp run
+	npm run start:debug
 
 build:
 	npm run build
 
 lint:
-	npx eslint .
+	npm run lint
 
 test:
 	npm test
