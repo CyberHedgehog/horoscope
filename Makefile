@@ -4,11 +4,11 @@ install:
 start:
 	npm run start
 
-# startprod:
-# 	npm run start:prod
+start_prod:
+	npm run start:prod
 
-# startdev:
-# 	npm run start:dev
+start_dev:
+	npm run start:dev
 
 debug:
 	npm run start:debug
