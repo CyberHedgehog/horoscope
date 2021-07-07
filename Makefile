@@ -4,11 +4,11 @@ install:
 start:
 	npm run start
 
-start prod:
-	npm run start:prod
+# startprod:
+# 	npm run start:prod
 
-start dev:
-	npm run start:dev
+# startdev:
+# 	npm run start:dev
 
 debug:
 	npm run start:debug
@@ -20,7 +20,7 @@ lint:
 	npm run lint
 
 test:
-	npm test
+	npm run test
 
 watch:
 	npx jest --watch
