@@ -11,13 +11,13 @@
 `make start`
 
 ## watch mode
-`make start dev`
+`make start_dev`
 
 ## debug mode
 `make debug`
 
 ## production mode
-`npm run start:prod`
+`make start_prod`
 
 # Test
 
